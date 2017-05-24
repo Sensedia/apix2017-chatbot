@@ -15,11 +15,11 @@ exports.register = (server, options, next) => {
                 params: {
                     usuarioId: Joi.number()
                         .required()
-                        .description('Identificador do usuário'),
+                        .description('Identificador do usuario'),
                 },
                 payload: Joi.object({
-                    ddd: Joi.number(),
-                    numero: Joi.number()
+                    ddd: Joi.number().required(),
+                    numero: Joi.number().required()
                 })
             }
         }
@@ -37,7 +37,7 @@ exports.register = (server, options, next) => {
                 params: {
                     usuarioId: Joi.number()
                         .required()
-                        .description('Identificador do usuário'),
+                        .description('Identificador do usuario'),
                 }
             }
         }
