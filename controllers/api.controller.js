@@ -6,7 +6,7 @@ function salvarTelefone(req, reply) {
     const { ddd, numero } = req.payload;
     const obj = { usuarioId: usuarioId, telefoneId: uuid(), ddd: ddd, numero: numero };
     db.insert(obj);
-    reply().header('Location', `usuarios/${usuarioId}/telefones/${obj.telefoneId}`).code(201);
+    reply({ id: obj.telefoneId }).header('Location', `usuarios/${usuarioId}/telefones/${obj.telefoneId}`).code(201);
 }
 
 function buscarTelefone(req, reply) {
