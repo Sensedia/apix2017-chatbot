@@ -48,8 +48,8 @@ exports.register = (server, options, next) => {
         path: '/usuarios/{usuarioId}/telefones/{telefoneId}',
         config: {
             handler: userController.buscarTelefone,
-            description: 'Buscar telefones',
-            notes: 'Retorna todos os telefones do usuario informado',
+            description: 'Buscar telefone',
+            notes: 'Retorna o telefone com base no identificador e usuario informado',
             tags: ['api'],
             validate: {
                 params: {
