@@ -1,0 +1,29 @@
+{
+  "name": "ibge-api",
+  "version": "1.0.0",
+  "description": "Microserviço de telefones criado para utilização do APIx 2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "apix2017",
+    "tests"
+  ],
+  "author": {
+    "name": "Claudenir Machado",
+    "email": "claudenir.machado@sensedia.com",
+    "url": "http://sensedia.com/"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "hapi-swagger": "^7.7.0",
+    "inert": "^4.2.0",
+    "joi": "^10.5.0",
+    "lokijs": "^1.4.3",
+    "uuid": "^3.0.1",
+    "vision": "^4.1.1"
+  }
+}
