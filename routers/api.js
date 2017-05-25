@@ -18,8 +18,7 @@ exports.register = (server, options, next) => {
                         .description('Identificador do usuario'),
                 },
                 payload: Joi.object({
-                    ddd: Joi.number().required(),
-                    numero: Joi.number().required()
+                    numero: Joi.string().required()
                 })
             }
         }

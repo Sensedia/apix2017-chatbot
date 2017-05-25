@@ -29,11 +29,11 @@ function buscarTelefones(req, reply) {
 }
 
 function processarTelefones(telefonesDB) {
-    return telefonesDB.map(t => { return { id: t.telefoneId, ddd: t.ddd, numero: t.numero }; });
+    return telefonesDB.map(t => { return { id: t.telefoneId, numero: t.numero }; });
 }
 
 function processarTelefone(telefoneDB) {
-    return { ddd: telefoneDB.ddd, numero: telefoneDB.numero };
+    return { numero: telefoneDB.numero };
 }
 
 module.exports = {
