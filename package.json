@@ -1,7 +1,7 @@
 {
-  "name": "ibge-api",
+  "name": "apix2017-microservice-phone",
   "version": "1.0.0",
-  "description": "Microserviço de telefones - APIx 2017",
+  "description": "Microserviço de telefones",
   "main": "index.js",
   "scripts": {
     "start": "node app.js"
@@ -15,6 +15,10 @@
     "name": "Claudenir Machado",
     "email": "claudenir.machado@sensedia.com",
     "url": "http://sensedia.com/"
+  },
+  "repository": {
+    "type": "github",
+    "url": "Sensedia/apix2017-microservice-phone.git"
   },
   "license": "ISC",
   "dependencies": {
