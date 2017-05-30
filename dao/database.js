@@ -1,5 +1,5 @@
 const loki = require('lokijs');
 const db = new loki('loki.json');
-const ibge = db.addCollection('ibge');
+const telefonesDB = db.addCollection('telefones');
 
-module.exports = ibge;
+module.exports = telefonesDB;

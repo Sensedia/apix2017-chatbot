@@ -15,7 +15,7 @@ const basePath = '/api/v1';
 
 server.register(
     {
-        register: require('./routers/api.js')
+        register: require('./routers/telefoneRouter.js')
     }, {
         routes: {
             prefix: basePath

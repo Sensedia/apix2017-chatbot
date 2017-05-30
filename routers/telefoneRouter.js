@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const userController = require('../controllers/api.controller.js');
+const TelefoneHandler = require('../handlers/telefoneHandler.js');
 
 exports.register = (server, options, next) => {
 
@@ -7,7 +7,7 @@ exports.register = (server, options, next) => {
         method: 'POST',
         path: '/usuarios/{usuarioId}/telefones',
         config: {
-            handler: userController.salvarTelefone,
+            handler: TelefoneHandler.salvarTelefone,
             description: 'Salvar telefone',
             notes: 'Salva o telefone do usuario informado',
             tags: ['api'],
@@ -18,7 +18,7 @@ exports.register = (server, options, next) => {
                         .description('Identificador do usuario'),
                 },
                 payload: Joi.object({
-                    numero: Joi.string().required()
+                    numero: Joi.string().regex(/^(?:(?:\+|00)?(55)\s?)?(?:\(?(\d{2})\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$/).required()
                 })
             }
         }
@@ -28,7 +28,7 @@ exports.register = (server, options, next) => {
         method: 'GET',
         path: '/usuarios/{usuarioId}/telefones',
         config: {
-            handler: userController.buscarTelefones,
+            handler: TelefoneHandler.buscarTelefones,
             description: 'Buscar telefones',
             notes: 'Retorna todos os telefones do usuario informado',
             tags: ['api'],
@@ -46,7 +46,7 @@ exports.register = (server, options, next) => {
         method: 'GET',
         path: '/usuarios/{usuarioId}/telefones/{telefoneId}',
         config: {
-            handler: userController.buscarTelefone,
+            handler: TelefoneHandler.buscarTelefone,
             description: 'Buscar telefone',
             notes: 'Retorna o telefone com base no identificador e usuario informado',
             tags: ['api'],

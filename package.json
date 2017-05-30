@@ -4,7 +4,8 @@
   "description": "Microserviço de telefones",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "postman": "newman run tests/postman/postman_collection.json -e tests/postman/postman_environment.json"
   },
   "keywords": [
     "api",
@@ -18,12 +19,18 @@
   },
   "license": "ISC",
   "dependencies": {
+    "boom": "^5.1.0",
     "hapi": "^16.1.0",
     "hapi-swagger": "^7.7.0",
+    "http-status": "^1.0.1",
     "inert": "^4.2.0",
     "joi": "^10.5.0",
     "lokijs": "^1.4.3",
     "uuid": "^3.0.1",
-    "vision": "^4.1.1"
+    "vision": "^4.1.1",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "newman": "^3.6.0"
   }
 }
