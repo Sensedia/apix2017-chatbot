@@ -16,6 +16,17 @@ function buscarTelefone(usuarioId, telefoneId) {
     return telefoneDB;
 }
 
+function excluirTelefone(usuarioId, telefoneId) {
+    const telefoneDB = db.findObject({ usuarioId: usuarioId, telefoneId: telefoneId });
+
+    if (telefoneDB) {
+        db.removeWhere({ usuarioId: usuarioId, telefoneId: telefoneId });
+        return true;
+    }
+
+    return false;
+}
+
 function buscarTelefones(usuarioId) {
     const telefonesDB = db.find({ usuarioId: usuarioId });
     return _processarTelefones(telefonesDB);
@@ -32,5 +43,6 @@ function _processarTelefone(telefoneDB) {
 module.exports = {
     salvarTelefone: salvarTelefone,
     buscarTelefone: buscarTelefone,
+    excluirTelefone: excluirTelefone,
     buscarTelefones: buscarTelefones
 }

@@ -11,7 +11,8 @@
 			"order": [
 				"833d35bf-2fc5-8e88-5f24-1b4297059568",
 				"698aeda6-1944-bffc-6cc2-61b7e419dd17",
-				"52cbb436-f480-0b63-c119-56afbe1e2b9b"
+				"52cbb436-f480-0b63-c119-56afbe1e2b9b",
+				"7c347325-bf30-81c9-5c37-02ccd6e3592d"
 			],
 			"owner": "192014"
 		}
@@ -55,6 +56,25 @@
 			"time": 1496126553112,
 			"name": "Buscar telefones",
 			"description": "Retorna todos os telefones do usuario informado",
+			"collectionId": "49924cd6-16c9-d2b2-6e7a-dae71bae537d",
+			"responses": []
+		},
+		{
+			"id": "7c347325-bf30-81c9-5c37-02ccd6e3592d",
+			"headers": "",
+			"url": "http://localhost:3000/api/v1/usuarios/{{USUARIO_ID}}/telefones/{{TELEFONE_ID}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "// variaveis request\nconst TEMPO_RESPOSTA = postman.getEnvironmentVariable(\"TEMPO_RESPOSTA\");\n\n// validacao: status code\ntests[\"[response status code] - status not content\"] = responseCode.code === 204;\n\n//validacao: tempo de resposta\ntests[`[response time] - tempo inferior a ${TEMPO_RESPOSTA}ms`] = responseTime < TEMPO_RESPOSTA;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1496160525226,
+			"name": "Deletar telefone",
+			"description": "Deleta o telefone com base no identificador e usuario informado",
 			"collectionId": "49924cd6-16c9-d2b2-6e7a-dae71bae537d",
 			"responses": []
 		},

@@ -20,6 +20,17 @@ function buscarTelefone(req, reply) {
     reply(telefone);
 }
 
+function excluirTelefone(req, reply) {
+    const { usuarioId, telefoneId } = req.params;
+    const telefone = telefoneService.excluirTelefone(usuarioId, telefoneId);
+
+    if (!telefone) {
+        return reply(Boom.notFound('Identificador inexistente'));
+    }
+
+    reply().code(HttpStatus.NO_CONTENT);
+}
+
 function buscarTelefones(req, reply) {
     const { usuarioId } = req.params;
     const telefones = telefoneService.buscarTelefones(usuarioId);
@@ -29,5 +40,6 @@ function buscarTelefones(req, reply) {
 module.exports = {
     salvarTelefone: salvarTelefone,
     buscarTelefone: buscarTelefone,
+    excluirTelefone: excluirTelefone,
     buscarTelefones: buscarTelefones
 }

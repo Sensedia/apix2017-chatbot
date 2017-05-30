@@ -63,6 +63,27 @@ exports.register = (server, options, next) => {
         }
     });
 
+    server.route({
+        method: 'DELETE',
+        path: '/usuarios/{usuarioId}/telefones/{telefoneId}',
+        config: {
+            handler: TelefoneHandler.excluirTelefone,
+            description: 'Deletar telefone',
+            notes: 'Deleta o telefone com base no identificador e usuario informado',
+            tags: ['api'],
+            validate: {
+                params: {
+                    usuarioId: Joi.number()
+                        .required()
+                        .description('Identificador do usuario'),
+                    telefoneId: Joi.string().guid()
+                        .required()
+                        .description('Identificador do telefone'),
+                }
+            }
+        }
+    });
+
     next();
 
 };
