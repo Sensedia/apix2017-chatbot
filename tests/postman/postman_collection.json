@@ -1,82 +1,10 @@
 {
-	"id": "49924cd6-16c9-d2b2-6e7a-dae71bae537d",
-	"name": "Microserviço de telefones",
-	"description": "",
-	"order": [],
-	"folders": [
-		{
-			"id": "2df1a514-0f76-755e-cf88-3baf4e430a6a",
-			"name": "usuarios",
-			"description": "Folder for usuarios",
-			"order": [
-				"833d35bf-2fc5-8e88-5f24-1b4297059568",
-				"698aeda6-1944-bffc-6cc2-61b7e419dd17",
-				"52cbb436-f480-0b63-c119-56afbe1e2b9b"
-			],
-			"owner": "192014"
-		}
-	],
-	"timestamp": 1413302258635,
-	"owner": "192014",
-	"public": false,
-	"requests": [
-		{
-			"id": "52cbb436-f480-0b63-c119-56afbe1e2b9b",
-			"headers": "",
-			"url": "http://localhost:3000/api/v1/usuarios/{{USUARIO_ID}}/telefones/{{TELEFONE_ID}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "// variaveis request\nconst USUARIO_ID = postman.getEnvironmentVariable(\"USUARIO_ID\");\nconst TEMPO_RESPOSTA = postman.getEnvironmentVariable(\"TEMPO_RESPOSTA\");\nconst RESPONSE_DATA = JSON.parse(responseBody);\n\n// validacao: status code\ntests[\"[response status code] - status ok\"] = responseCode.code === 200;\n\n//validacao: tempo de resposta\ntests[`[response time] - tempo inferior a ${TEMPO_RESPOSTA}ms`] = responseTime < TEMPO_RESPOSTA;\n\n// validacao: response body\ntests[`[response body] - validando objeto`] = RESPONSE_DATA.numero;\ntests[`[response body] - validando numero objeto`] = new RegExp(/^(?:(?:\\+|00)?(55)\\s?)?(?:\\(?(\\d{2})\\)?\\s?)?(?:((?:9\\d|[2-9])\\d{3})\\-?(\\d{4}))$/, 'g').test(RESPONSE_DATA.numero);",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496126537182,
-			"name": "Buscar telefone",
-			"description": "Retorna o telefone com base no identificador e usuario informado",
-			"collectionId": "49924cd6-16c9-d2b2-6e7a-dae71bae537d",
-			"responses": []
-		},
-		{
-			"id": "698aeda6-1944-bffc-6cc2-61b7e419dd17",
-			"headers": "",
-			"url": "http://localhost:3000/api/v1/usuarios/{{USUARIO_ID}}/telefones",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "// variaveis request\nconst USUARIO_ID = postman.getEnvironmentVariable(\"USUARIO_ID\");\nconst TEMPO_RESPOSTA = postman.getEnvironmentVariable(\"TEMPO_RESPOSTA\");\nconst RESPONSE_DATA = JSON.parse(responseBody);\n\n// validacao: status code\ntests[\"[response status code] - status ok\"] = responseCode.code === 200;\n\n//validacao: tempo de resposta\ntests[`[response time] - tempo inferior a ${TEMPO_RESPOSTA}ms`] = responseTime < TEMPO_RESPOSTA;\n\n// validacao: response body\ntests[`[response body] - validando objetos`] = RESPONSE_DATA.some(obj => obj.id && obj.numero);",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496126553112,
-			"name": "Buscar telefones",
-			"description": "Retorna todos os telefones do usuario informado",
-			"collectionId": "49924cd6-16c9-d2b2-6e7a-dae71bae537d",
-			"responses": []
-		},
-		{
-			"id": "833d35bf-2fc5-8e88-5f24-1b4297059568",
-			"headers": "Content-Type: application/json\n",
-			"url": "http://localhost:3000/api/v1/usuarios/{{USUARIO_ID}}/telefones",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "// variaveis request\nconst USUARIO_ID = postman.getEnvironmentVariable(\"USUARIO_ID\");\nconst TEMPO_RESPOSTA = postman.getEnvironmentVariable(\"TEMPO_RESPOSTA\");\nconst RESPONSE_DATA = JSON.parse(responseBody);\nconst TELEFONE_ID = RESPONSE_DATA.id;\n\n// validacao: status code\ntests[\"[response status code] - status criado\"] = responseCode.code === 201;\n\n//validacao: tempo de resposta\ntests[`[response time] - resposta inferior a ${TEMPO_RESPOSTA}ms`] = responseTime < TEMPO_RESPOSTA;\n\n// validacao: response body\ntests[\"[response body] - contem ID no response body\"] = TELEFONE_ID;\n\n// validacao: response headers\nconst headers_location = postman.getResponseHeader(\"location\");\ntests[\"[response headers] - contem location no headers da resposta\"] = headers_location;\ntests[\"[response headers] - contem location com o identificador\"] = headers_location === `usuarios/${USUARIO_ID}/telefones/${TELEFONE_ID}`;\n\n// insercao: setando o ID do telefone\npostman.setEnvironmentVariable(\"TELEFONE_ID\", TELEFONE_ID);",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496126576597,
-			"name": "Salvar telefone",
-			"description": "Salva o telefone do usuario informado",
-			"collectionId": "49924cd6-16c9-d2b2-6e7a-dae71bae537d",
-			"responses": [],
-			"rawModeData": "{\n\t\"numero\": \"+5519982984402\"\n}"
-		}
-	]
+	"variables": [],
+	"info": {
+		"name": "Microserviço de telefones",
+		"_postman_id": "939e6abe-8735-a2e0-8746-8623f2f9e846",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": []
 }

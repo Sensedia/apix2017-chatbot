@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Install Postman BDD",
+		"_postman_id": "994afe23-77c3-6137-6173-728a81281af5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Postman BDD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"postmanBDD\", responseBody);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.min.js",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

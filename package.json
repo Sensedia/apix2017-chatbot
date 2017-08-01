@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "postman": "newman run tests/postman/postman_collection.json -e tests/postman/postman_environment.json"
+    "test": "newman run tests/postman/postman_collection.json -e tests/postman/postman_environment.json"
   },
   "keywords": [
     "api",
